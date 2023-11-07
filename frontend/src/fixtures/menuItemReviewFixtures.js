@@ -1,4 +1,4 @@
-const ucsbDatesFixtures = {
+const menuItemReviewsFixtures = {
     oneReview: {
         "id": 1,
         "itemId": 10,
@@ -36,4 +36,4 @@ const ucsbDatesFixtures = {
 };
 
 
-export { ucsbDatesFixtures };
+export { menuItemReviewsFixtures };
