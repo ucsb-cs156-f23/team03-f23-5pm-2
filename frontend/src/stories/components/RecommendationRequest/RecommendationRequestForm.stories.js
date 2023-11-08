@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantForm from "main/components/RecommendationRequest/RecommendationRequestForm"
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm"
 import { recommendationRequestFixtures } from 'fixtures/recommendationRequestFixtures';
 
 export default {
