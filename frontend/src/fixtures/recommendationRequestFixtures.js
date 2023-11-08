@@ -1,4 +1,4 @@
-const ucsbDatesFixtures = {
+const recommendationRequestFixtures = {
     oneRecommendationRequest: {
         "id": 1,
         "requesterEmail": "student@ucsb.edu",
