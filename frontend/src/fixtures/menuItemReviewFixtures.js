@@ -1,4 +1,4 @@
-const menuItemReviewsFixtures = {
+const menuItemReviewFixtures = {
     oneReview: {
         "id": 1,
         "itemId": 10,
@@ -36,4 +36,4 @@ const menuItemReviewsFixtures = {
 };
 
 
-export { menuItemReviewsFixtures };
+export { menuItemReviewFixtures };
