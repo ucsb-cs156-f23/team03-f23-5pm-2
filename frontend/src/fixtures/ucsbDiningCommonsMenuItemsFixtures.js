@@ -3,7 +3,7 @@ const ucsbDiningCommonsMenuItemsFixtures = {
     [
         {
             "id": 1,
-            "diningCommonCode": "De La Guerra",
+            "diningCommonsCode": "De La Guerra",
             "name": "Pasta Primavera",
             "station": "To Order"      
         },
@@ -12,21 +12,21 @@ const ucsbDiningCommonsMenuItemsFixtures = {
     [
         {
             "id": 2,
-            "diningCommonCode": "De La Carillo",
+            "diningCommonsCode": "De La Carillo",
             "name": "Pasta Primadora",
             "station": "To mongolia"       
         },
 
         {
             "id": 3,
-            "diningCommonCode": "De La Portola",
+            "diningCommonsCode": "De La Portola",
             "name": "Pasta Pesto",
             "station": "To east side"       
         },
 
         {
-            "id": 3,
-            "diningCommonCode": "De La",
+            "id": 4,
+            "diningCommonsCode": "De La",
             "name": "Pasta",
             "station": "To"       
         },

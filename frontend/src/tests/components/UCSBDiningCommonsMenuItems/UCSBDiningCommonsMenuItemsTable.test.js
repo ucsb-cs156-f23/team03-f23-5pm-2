@@ -72,9 +72,13 @@ describe("UCSBDiningCommonsMenuItemsTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-name`)).toHaveTextContent("Pasta Primadora");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`)).toHaveTextContent("De La Carillo");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-station`)).toHaveTextContent("To mongolia");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-name`)).toHaveTextContent("Pasta Pesto");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`)).toHaveTextContent("De La Portola");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-station`)).toHaveTextContent("To east side");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
