@@ -1,14 +1,13 @@
 const ucsbDiningCommonsMenuItemFixtures = {
     oneItem:
     [
-      {
+        {
             "id": 1,
             "diningCommonCode": "De La Guerra",
             "name": "Pasta Primavera",
             "station": "To Order"      
-      }
+        },
     ],
-
     threeRestaurants:
     [
         {
