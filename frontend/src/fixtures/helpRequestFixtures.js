@@ -6,7 +6,7 @@ const helpRequestFixtures = {
         "tableOrBreakoutRoom": "Table 4",
         "requestTime": "2023-11-03T00:00:00",
         "explanation": "Need help with debugging",
-        "solved": false
+        "solved": "false"
     },
     threeRequests: [
         {
@@ -16,7 +16,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "Table 4",
             "requestTime": "2023-11-03T00:00:00",
             "explanation": "Need help with debugging",
-            "solved": false
+            "solved": "true"
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "Table 8",
             "requestTime": "2023-11-04T00:00:00",
             "explanation": "Need help with downloading maven",
-            "solved": false
+            "solved": "false"
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom": "Breakout Room 3",
             "requestTime": "2023-11-05T00:00:00",
             "explanation": "Need help with interpreting error message",
-            "solved": false
+            "solved": "false"
         }
     ]
 };
