@@ -116,8 +116,8 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             {...register("requestTime", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.requestTime && 'Required: Request Time. '}
-                            {errors.requestTime?.type === 'pattern' && 'Request Time must be in iso format'}
+                            {errors.requestTime && 'Required: Request Time.'}
+                            {errors.requestTime?.type === 'pattern' && 'Note: Request Time must be in iso format'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -154,11 +154,12 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             type="text"
                             isInvalid={Boolean(errors.solved)}
                             {...register("solved", {
-                                required: "Required: Solved"
+                                required: true, pattern: /^(true|false)$/
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.solved?.message}
+                        {errors.solved && 'Required: Solved.'}
+                        {errors.solved?.type === 'pattern' && 'Note: Solved must be true or false'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
