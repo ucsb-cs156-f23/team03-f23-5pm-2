@@ -116,7 +116,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             {...register("requestTime", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.requestTime && 'Required: Request Time'}
+                            {errors.requestTime && 'Required: Request Time. '}
                             {errors.requestTime?.type === 'pattern' && 'Request Time must be in iso format'}
                         </Form.Control.Feedback>
                     </Form.Group>

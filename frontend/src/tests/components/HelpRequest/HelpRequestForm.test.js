@@ -22,6 +22,7 @@ describe("HelpRequestForm tests", () => {
             </Router>
         );
         await screen.findByText(/Requester Email/);
+        await screen.findByText(/Id/);
         await screen.findByText(/Create/);
     });
 
@@ -33,11 +34,13 @@ describe("HelpRequestForm tests", () => {
             </Router>
         );
         await screen.findByTestId(/HelpRequestForm-id/);
-        expect(screen.getByText(/id/)).toBeInTheDocument();
-        expect(screen.getByTestId(/HelpRequestForm-id/)).toHaveValue("1");
+
+        await screen.findByTestId(/HelpRequestForm-requesterEmail/);
+        expect(screen.getByText(/Requester Email/)).toBeInTheDocument();
+        expect(screen.getByTestId(/HelpRequestForm-requesterEmail/)).toHaveValue("bradencastillo@ucsb.edu");
     });
 
-    
+
     test("Correct Error messsages on bad input", async () => {
 
         render(
@@ -71,7 +74,7 @@ describe("HelpRequestForm tests", () => {
         await screen.findByText(/Required: Requester Email/);
         expect(screen.getByText(/Required: Team Id/)).toBeInTheDocument();
         expect(screen.getByText(/Required: Table or Breakout Room/)).toBeInTheDocument();
-        expect(screen.getByText(/Required: Request Time/)).toBeInTheDocument();
+        expect(screen.getByText(/Required: Request Time. /)).toBeInTheDocument();
         expect(screen.getByText(/Required: Explanation/)).toBeInTheDocument();
         expect(screen.getByText(/Required: Solved/)).toBeInTheDocument();
     });
