@@ -101,7 +101,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
                 "inactive" : "false"
         });
 
-        expect(mockToast).toBeCalledWith("New organization Created - orgCode: ZPR orgTranslationShort: ZETA PHI RHO orgTranslation: undefined inactive: false");
+        expect(mockToast).toBeCalledWith("New organization Created - orgCode: ZPR orgTranslationShort: ZETA PHI RHO orgTranslation: ZETA PHI RHO inactive: false");
         expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganization" });
 
     });
