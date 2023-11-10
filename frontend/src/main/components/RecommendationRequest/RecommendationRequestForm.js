@@ -141,8 +141,8 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             isInvalid={Boolean(errors.done)}
                             {...register("done", {})}
                         >
-                            <option value="True">True</option>
-                            <option value="False">False</option>
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">
                             {errors.done?.message}
