@@ -55,6 +55,7 @@ export default function HelpRequestTable({ requests, currentUser }) {
         {
             Header: 'Solved',
             accessor: 'solved',
+            Cell: ({ value }) => (value.toString()), // Render boolean value as a string
         }
     ];
 
