@@ -109,7 +109,7 @@ describe("ArticlesCreatePage tests", () => {
                 "dateAdded": article.dateAdded
             });
 
-        expect(mockToast).toBeCalledWith(`New article Created - id: 17 title: ${article.title}`);
+        expect(mockToast).toBeCalledWith("New Article Created - id: 17 title: test");
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
     });
 

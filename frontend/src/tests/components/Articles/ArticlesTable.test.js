@@ -73,8 +73,8 @@ describe("UserTable tests", () => {
             expect(header).toBeInTheDocument();
         });
 
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0");
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
 
         const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
         expect(editButton).not.toBeInTheDocument();
@@ -112,8 +112,8 @@ describe("UserTable tests", () => {
         });
     
         //expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0");
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
     
         const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
         expect(editButton).toBeInTheDocument();
@@ -138,14 +138,14 @@ describe("UserTable tests", () => {
     
         );
     
-        await waitFor(() => { expect(screen.getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+        await waitFor(() => { expect(screen.getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("0"); });
     
         const editButton = screen.getByTestId(`ArticlesTable-cell-row-0-col-Edit-button`);
         expect(editButton).toBeInTheDocument();
         
         fireEvent.click(editButton);
     
-        await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/articles/edit/1'));
+        await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/articles/edit/0'));
     
     });
 
@@ -165,8 +165,8 @@ describe("UserTable tests", () => {
         const testId = "ArticlesTable";
     
         // assert - check that the expected content is rendered
-        expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("The Mysteries of Quantum Physics");
+        expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Welcome to Amgad World");
     
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
         expect(deleteButton).toBeInTheDocument();

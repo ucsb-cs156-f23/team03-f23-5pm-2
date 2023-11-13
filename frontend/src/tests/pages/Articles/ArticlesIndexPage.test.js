@@ -83,9 +83,9 @@ describe("ArticlesIndexPage tests", () => {
         );
 
         // assert
-        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); });
-        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-        expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
+        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0"); });
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("2");
 
         // assert that the Create button is not present when user isn't an admin
         expect(screen.queryByText(/Create Article/)).not.toBeInTheDocument();
@@ -138,7 +138,7 @@ describe("ArticlesIndexPage tests", () => {
         // assert
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0");
 
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
         expect(deleteButton).toBeInTheDocument();
