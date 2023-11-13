@@ -1,5 +1,5 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBDiningCommonsMenuItemsForm from "main/components/UCSBDiningCommonssMenuItems/UCSBDiningCommonsMenuItemsForm";
+import UCSBDiningCommonsMenuItemsForm from "main/components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ export default function UCSBDiningCommonsMenuItemsCreatePage({storybook=false}) 
   });
 
   const onSuccess = (ucsbDiningCommonsMenuItems) => {
-    toast(`New ucsbDiningCommonsMenuItems Created - id: ${ucsbDiningCommonsMenuItems.id} name: ${ucsbDiningCommonsMenuItems.name}`);
+    toast(`New dining common menu item created - id: ${ucsbDiningCommonsMenuItems.id} name: ${ucsbDiningCommonsMenuItems.name}`);
   }
 
   const mutation = useBackendMutation(
