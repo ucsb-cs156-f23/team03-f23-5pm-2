@@ -6,7 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/articlesUti
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBDatesTable({ articles, currentUser }) {
+export default function ArticlesTable({ articles, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -15,14 +15,12 @@ export default function UCSBDatesTable({ articles, currentUser }) {
     }
 
     // Stryker disable all : hard to test for query caching
-
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
         ["/api/articles/all"]
     );
     // Stryker restore all 
-
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
@@ -49,7 +47,7 @@ export default function UCSBDatesTable({ articles, currentUser }) {
             accessor: 'email',
         },
         {
-            Header: 'Date',
+            Header: 'Date Added',
             accessor: 'dateAdded',
         }
     ];
@@ -57,7 +55,7 @@ export default function UCSBDatesTable({ articles, currentUser }) {
     if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, "ArticlesTable"));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "ArticlesTable"));
-    } 
+    }
 
     return <OurTable
         data={articles}
