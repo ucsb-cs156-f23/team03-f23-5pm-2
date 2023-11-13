@@ -79,8 +79,8 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
         expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
 
-        const createUCSDiningCommonsMenuItemsButton = screen.queryByText("Create UCSDiningCommonsMenuItems");
-        expect(createUCSDiningCommonsMenuItemsButton).not.toBeInTheDocument();
+        const createUCSBDiningCommonsMenuItemsButton = screen.queryByText("Create UCSBDiningCommonsMenuItems");
+        expect(createUCSBDiningCommonsMenuItemsButton).not.toBeInTheDocument();
 
         const name = screen.getByText("Pasta Primadora");
         expect(name).toBeInTheDocument();
@@ -92,8 +92,8 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         expect(station).toBeInTheDocument();
 
         // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
-        expect(screen.queryByTestId("UCSDiningCommonsMenuItemsTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
-        expect(screen.queryByTestId("UCSDiningCommonsMenuItemsTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
+        expect(screen.queryByTestId("UCSBDiningCommonsMenuItemsTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
+        expect(screen.queryByTestId("UCSBDiningCommonsMenuItemsTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
     });
 
     test("renders empty table when backend unavailable, user only", async () => {
@@ -123,7 +123,7 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         setupAdminUser();
 
         axiosMock.onGet("/api/ucsbdiningcommonsmenuitems/all").reply(200, ucsbDiningCommonsMenuItemsFixtures.threeRestaurants);
-        axiosMock.onDelete("/api/ucsbdiningcommonsmenuitems").reply(200, "UCSDiningCommonsMenuItems with id 1 was deleted");
+        axiosMock.onDelete("/api/ucsbdiningcommonsmenuitems").reply(200, "UCSBDiningCommonsMenuItems with id 1 was deleted");
 
 
         render(
@@ -144,7 +144,7 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
 
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("UCSDiningCommonsMenuItems with id 1 was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItems with id 1 was deleted") });
 
         await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
         expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitems");
