@@ -60,7 +60,7 @@ describe("ArticlesEditPage tests", () => {
                 </QueryClientProvider>
             );
             await screen.findByText("Edit Article");
-            expect(screen.queryByTestId("ArticlesForm-title")).not.toBeInTheDocument();
+            expect(screen.queryByTestId("ArticleForm-title")).not.toBeInTheDocument();
             restoreConsole();
         });
     });
@@ -69,35 +69,27 @@ describe("ArticlesEditPage tests", () => {
 
         const axiosMock = new AxiosMockAdapter(axios);
 
-        let originalArticle;
-        let newArticle;
-
         beforeEach(() => {
             axiosMock.reset();
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-
-            originalArticle = {
+            axiosMock.onGet("/api/articles", { params: { id: 17 } }).reply(200, {
                 id: 17,
-                title: "test",
-                url: "nytimes.com",
-                explanation: "this is an example",
-                email: "author@nytimes.com",
-                dateAdded: "2022-03-11T00:00"
-            };
-
-            newArticle = {
-                id: 17,
-                title: "sample",
-                url: "washingtonpost.com",
-                explanation: "this is another example",
-                email: "writer@washingtonpost.com",
-                dateAdded: "2023-05-01T23:59"
-            };
-
-            axiosMock.onGet("/api/articles", { params: { id: 17 } }).reply(200, originalArticle);
-            axiosMock.onPut('/api/articles').reply(200, newArticle);
+                title: "Exploring the Depths of the Mariana Trench",
+                url: "www.deepseaexploration.com/mariana_trench",
+                explanation: "This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.",
+                email: "editor@deepseaexploration.com",
+                dateAdded: "2023-11-04T17:46:15.228"
+            });
+            axiosMock.onPut('/api/articles').reply(200, {
+                id: "17",
+                title: "The Mysteries of Quantum Physics",
+                url: "www.quantumphysicsinsights.com/mysteries",
+                explanation: "This article delves into the enigmatic world of quantum physics, explaining its fundamental principles in an accessible way.",
+                email: "info@quantumphysicsinsights.com", 
+                dateAdded: "2023-11-04T17:48:57.000"
+            });
         });
 
         const queryClient = new QueryClient();
@@ -124,7 +116,6 @@ describe("ArticlesEditPage tests", () => {
             await screen.findByTestId("ArticlesForm-title");
 
             const idField = screen.getByTestId("ArticlesForm-id");
-
             const titleField = screen.getByTestId("ArticlesForm-title");
             const urlField = screen.getByTestId("ArticlesForm-url");
             const explanationField = screen.getByTestId("ArticlesForm-explanation");
@@ -132,12 +123,12 @@ describe("ArticlesEditPage tests", () => {
             const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
             const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-            expect(idField).toHaveValue(String(originalArticle.id));
-            expect(titleField).toHaveValue(originalArticle.title);
-            expect(urlField).toHaveValue(originalArticle.url);
-            expect(explanationField).toHaveValue(originalArticle.explanation);
-            expect(emailField).toHaveValue(originalArticle.email);
-            expect(dateAddedField).toHaveValue(originalArticle.dateAdded);
+            expect(idField).toHaveValue("17");
+            expect(titleField).toHaveValue("Exploring the Depths of the Mariana Trench");
+            expect(urlField).toHaveValue("www.deepseaexploration.com/mariana_trench");
+            expect(explanationField).toHaveValue("This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.");
+            expect(emailField).toHaveValue("editor@deepseaexploration.com");
+            expect(dateAddedField).toHaveValue("2023-11-04T17:46:15.228");
             expect(submitButton).toBeInTheDocument();
         });
 
@@ -152,7 +143,7 @@ describe("ArticlesEditPage tests", () => {
             );
 
             await screen.findByTestId("ArticlesForm-title");
-
+            
             const idField = screen.getByTestId("ArticlesForm-id");
             const titleField = screen.getByTestId("ArticlesForm-title");
             const urlField = screen.getByTestId("ArticlesForm-url");
@@ -160,34 +151,39 @@ describe("ArticlesEditPage tests", () => {
             const emailField = screen.getByTestId("ArticlesForm-email");
             const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
             const submitButton = screen.getByTestId("ArticlesForm-submit");
-
-            expect(idField).toHaveValue(String(originalArticle.id));
-            expect(titleField).toHaveValue(originalArticle.title);
-            expect(urlField).toHaveValue(originalArticle.url);
-            expect(explanationField).toHaveValue(originalArticle.explanation);
-            expect(emailField).toHaveValue(originalArticle.email);
-            expect(dateAddedField).toHaveValue(originalArticle.dateAdded);
+            
+            expect(idField).toHaveValue("17");
+            expect(titleField).toHaveValue("Exploring the Depths of the Mariana Trench");
+            expect(urlField).toHaveValue("www.deepseaexploration.com/mariana_trench");
+            expect(explanationField).toHaveValue("This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.");
+            expect(emailField).toHaveValue("editor@deepseaexploration.com");
+            expect(dateAddedField).toHaveValue("2023-11-04T17:46:15.228");
             expect(submitButton).toBeInTheDocument();
 
-            fireEvent.change(titleField, { target: { value: newArticle.title } });
-            fireEvent.change(urlField, { target: { value: newArticle.url } });
-            fireEvent.change(explanationField, { target: { value: newArticle.explanation } });
-            fireEvent.change(emailField, { target: { value: newArticle.email } });
-            fireEvent.change(dateAddedField, { target: { value: newArticle.dateAdded } });
+            fireEvent.change(titleField, { target: { value: 'The Mysteries of Quantum Physics' } });
+            fireEvent.change(urlField, { target: { value: 'www.quantumphysicsinsights.com/mysteries' } });
+            fireEvent.change(explanationField, { target: { value: 'This article delves into the enigmatic world of quantum physics, explaining its fundamental principles in an accessible way.' } });
+            fireEvent.change(emailField, { target: { value: 'info@quantumphysicsinsights.com' } });
+            fireEvent.change(dateAddedField, { target: { value: '2023-11-04T17:48:57.000' } });
 
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith(`Article Updated - id: 17 title: ${newArticle.title}`);
+            expect(mockToast).toBeCalledWith("Article Updated - id: 17 title: The Mysteries of Quantum Physics");
             expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
-            const { id, ...newArticleBody } = newArticle
-            expect(axiosMock.history.put[0].data).toBe(JSON.stringify(newArticleBody)); // posted object
+            expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
+                title: "The Mysteries of Quantum Physics",
+                url: "www.quantumphysicsinsights.com/mysteries",
+                explanation: "This article delves into the enigmatic world of quantum physics, explaining its fundamental principles in an accessible way.",
+                email: "info@quantumphysicsinsights.com", 
+                dateAdded: "2023-11-04T17:48:57.000"
+            })); // posted object
 
         });
 
-
+       
     });
 });
