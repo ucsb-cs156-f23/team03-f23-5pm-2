@@ -58,7 +58,7 @@ describe("ArticlesIndexPage tests", () => {
         );
 
         // assert
-        await waitFor(() => {
+        await waitFor( ()=>{
             expect(screen.getByText(/Create Article/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create Article/);
@@ -66,8 +66,8 @@ describe("ArticlesIndexPage tests", () => {
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
-    test("renders three dates correctly for regular user", async () => {
-
+    test("renders three articles correctly for regular user", async () => {
+        
         // arrange
         setupUserOnly();
         const queryClient = new QueryClient();
