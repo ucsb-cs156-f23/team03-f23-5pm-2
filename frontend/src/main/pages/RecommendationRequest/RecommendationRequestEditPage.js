@@ -66,8 +66,8 @@ export default function RecommendationRequestEditPage({storybook=false}) {
         {
           recommendationRequest && <RecommendationRequestForm initialContents={recommendationRequest} submitAction={onSubmit} buttonLabel="Update" />
         }
+
       </div>
     </BasicLayout>
   )
 }
-

@@ -193,8 +193,6 @@ describe("RecommendationRequestEditPage tests", () => {
             })); // posted object
 
         });
-
-       
     });
 });
 
