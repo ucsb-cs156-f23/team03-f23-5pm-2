@@ -34,7 +34,7 @@ describe("ArticlesForm tests", () => {
         );
         await screen.findByTestId(/ArticlesForm-id/);
         expect(screen.getByText(/Id/)).toBeInTheDocument();
-        //expect(screen.getByTestId(/ArticlesForm-id/)).toHaveValue("0");
+        //eaexpect(screen.getByTestId(/ArticlesForm-id/)).toHaveValue("0");
     });
 
 
