@@ -121,7 +121,6 @@ describe("RecommendationRequestIndexPage tests", () => {
     test("what happens when you click delete, admin", async () => {
         // arrange
         setupAdminUser();
-        const queryClient = new QueryClient();
         axiosMock.onGet("/api/recommendationrequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
         axiosMock.onDelete("/api/recommendationrequest").reply(200, "RecommendationRequest with id 1 was deleted");
     });
