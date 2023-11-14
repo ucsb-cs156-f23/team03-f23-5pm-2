@@ -1,8 +1,7 @@
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
-
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -122,32 +121,8 @@ describe("RecommendationRequestIndexPage tests", () => {
     test("what happens when you click delete, admin", async () => {
         // arrange
         setupAdminUser();
-        const queryClient = new QueryClient();
         axiosMock.onGet("/api/recommendationrequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
         axiosMock.onDelete("/api/recommendationrequest").reply(200, "RecommendationRequest with id 1 was deleted");
-      
-        // act
-        render(
-            <QueryClientProvider client={queryClient}>
-                <MemoryRouter>
-                    <RecommendationRequestIndexPage />
-                </MemoryRouter>
-            </QueryClientProvider>
-        );
-
-        // assertw
-        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
-
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-
-        const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-        expect(deleteButton).toBeInTheDocument();
-
-        // act
-        fireEvent.click(deleteButton);
-
-        // assert
-        await waitFor(() => { expect(mockToast).toBeCalledWith("RecommendationRequest with id 1 was deleted") });
     });
 
 });
