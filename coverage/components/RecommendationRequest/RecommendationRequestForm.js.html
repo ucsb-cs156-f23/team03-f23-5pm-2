@@ -249,23 +249,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -471,8 +471,8 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             {...register("requesterEmail", { required: true, pattern: email_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.requesterEmail &amp;&amp; 'Requester email is required.'}
-                            {errors.requesterEmail?.type === 'pattern' &amp;&amp; 'Requester email must be a valid email.'}
+                            {errors.requesterEmail &amp;&amp; 'Requester email is required. '}
+                            {errors.requesterEmail?.type === 'pattern' &amp;&amp; 'Requester email must be a valid email. '}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
             &lt;/Col&gt;
@@ -491,8 +491,8 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         })}
                     /&gt;
                     &lt;Form.Control.Feedback type="invalid"&gt;
-                        {errors.professorEmail &amp;&amp; 'Professor email is required.'}
-                        {errors.professorEmail?.type === 'pattern' &amp;&amp; 'Professor email must be a valid email.'}
+                        {errors.professorEmail &amp;&amp; 'Professor email is required. '}
+                        {errors.professorEmail?.type === 'pattern' &amp;&amp; 'Professor email must be a valid email. '}
                     &lt;/Form.Control.Feedback&gt;
                 &lt;/Form.Group&gt;
             &lt;/Col&gt;
@@ -510,7 +510,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         })}
                     /&gt;
                     &lt;Form.Control.Feedback type="invalid"&gt;
-                        {errors.explanation &amp;&amp; 'Explanation is required.'}
+                        {errors.explanation &amp;&amp; 'Explanation is required. '}
                     &lt;/Form.Control.Feedback&gt;
                 &lt;/Form.Group&gt;
             &lt;/Col&gt;
@@ -527,7 +527,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             {...register("dateRequested", { required: true, pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.dateRequested &amp;&amp; 'Date requested is required.'}
+                            {errors.dateRequested &amp;&amp; 'Date requested is required. '}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -542,7 +542,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             {...register("dateNeeded", { required: true, pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.dateNeeded &amp;&amp; 'Date needed is required.'}
+                            {errors.dateNeeded &amp;&amp; 'Date needed is required. '}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -595,7 +595,7 @@ export default RecommendationRequestForm;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Nov 13 2023 14:57:01 GMT-0800 (Pacific Standard Time)
+                at Mon Nov 13 2023 16:42:44 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
