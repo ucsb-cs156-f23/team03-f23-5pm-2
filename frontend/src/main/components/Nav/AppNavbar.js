@@ -96,16 +96,11 @@ function App() {
                   <Nav.Link as={Link} to="/ucsborganization">UCSB Organizations</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdiningcommonsmenuitems">UCSB Dining Commons Menu Items</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
-<<<<<<<<< Temporary merge branch 1
-                  <Nav.Link as={Link} to='/recommendationrequest'>Recommendation Request</Nav.Link>
-                  <Nav.Link as={Link} to="/menuitemreviews">Menu Item Reviews</Nav.Link>
-                  <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
-                  <Nav.Link as={Link} to="/helprequest">HelpRequest</Nav.Link>
-=========
                   <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                   <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
->>>>>>>>> Temporary merge branch 2
+                  <Nav.Link as={Link} to='/recommendationrequest'>Recommendation Request</Nav.Link>
+                  <Nav.Link as={Link} to="/helprequest">HelpRequest</Nav.Link>
                 </>
               )
             }
