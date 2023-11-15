@@ -1,9 +1,47 @@
-import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { hasRole } from "main/utils/currentUser";
-import AppNavbarLocalhost from "main/components/Nav/AppNavbarLocalhost"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "main/pages/HomePage";
+import ProfilePage from "main/pages/ProfilePage";
+import AdminUsersPage from "main/pages/AdminUsersPage";
 
-export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUrl = window.location.href }) {
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
+import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
+
+import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
+import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
+import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
+
+import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
+import RestaurantCreatePage from "main/pages/Restaurants/RestaurantCreatePage";
+import RestaurantEditPage from "main/pages/Restaurants/RestaurantEditPage";
+
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
+import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
+
+import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
+import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
+import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
+
+import MenuItemReviewsIndexPage from "main/pages/MenuItemReviews/MenuItemReviewsIndexPage";
+import MenuItemReviewsCreatePage from "main/pages/MenuItemReviews/MenuItemReviewsCreatePage";
+import MenuItemReviewsEditPage from "main/pages/MenuItemReviews/MenuItemReviewsEditPage";
+
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
+import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
+import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
+
+import UCSBDiningCommonsMenuItemsIndexPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsIndexPage";
+import UCSBDiningCommonsMenuItemsCreatePage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsCreatePage";
+import UCSBDiningCommonsMenuItemsEditPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsEditPage";
+
+import { hasRole, useCurrentUser } from "main/utils/currentUser";
+
+import "bootstrap/dist/css/bootstrap.css";
+
+function App() {
+  const { data: currentUser } = useCurrentUser();
+
   return (
     <>
       {
@@ -58,11 +96,16 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/ucsborganization">UCSB Organizations</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdiningcommonsmenuitems">UCSB Dining Commons Menu Items</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
+<<<<<<<<< Temporary merge branch 1
+                  <Nav.Link as={Link} to='/recommendationrequest'>Recommendation Request</Nav.Link>
+                  <Nav.Link as={Link} to="/menuitemreviews">Menu Item Reviews</Nav.Link>
+                  <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
+                  <Nav.Link as={Link} to="/helprequest">HelpRequest</Nav.Link>
+=========
                   <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                   <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
-                  <Nav.Link as={Link} to='/recommendationrequest'>Recommendation Request</Nav.Link>
-                  <Nav.Link as={Link} to="/helprequest">HelpRequest</Nav.Link>
+>>>>>>>>> Temporary merge branch 2
                 </>
               )
             }
@@ -84,3 +127,5 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
     </>
   );
 }
+
+export default App;
