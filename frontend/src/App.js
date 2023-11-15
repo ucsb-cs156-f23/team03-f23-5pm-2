@@ -129,12 +129,13 @@ function App() {
             </>
           )
         }
+        {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
             </>
           )
-      
+        }
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
@@ -192,5 +193,7 @@ function App() {
     </BrowserRouter>
   );
 }
+
+export default App;
 
 export default App;
