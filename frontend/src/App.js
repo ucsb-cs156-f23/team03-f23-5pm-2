@@ -36,6 +36,8 @@ import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage"
 import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
 
 import UCSBDiningCommonsMenuItemsIndexPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsIndexPage";
+import UCSBDiningCommonsMenuItemsCreatePage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsCreatePage";
+import UCSBDiningCommonsMenuItemsEditPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsEditPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
